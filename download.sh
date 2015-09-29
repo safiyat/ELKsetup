@@ -23,6 +23,18 @@ then
 fi
 
 
+REDIS_INSTALLED=$(dpkg -l | grep ^ii | grep " redis-server")
+if [ -z  "$REDIS_INSTALLED" ]
+then
+    if [ -z "$APT_UPDATED" ]
+    then
+        sudo apt-get update
+        APT_UPDATED="True"
+    fi
+    sudo apt-get -y install redis-server
+fi
+
+
 #Download logstash
 if [ ! -s  "logstash-1.5.4.tar.gz" ]
 then
