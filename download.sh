@@ -21,3 +21,22 @@ then
     fi
     sudo apt-get -y install openjdk-7-jre
 fi
+
+
+#Download logstash
+if [ ! -s  "logstash-1.5.4.tar.gz" ]
+then
+    curl -O https://download.elasticsearch.org/logstash/logstash/logstash-1.5.4.tar.gz
+fi
+
+#Download elasticsearch
+if [ ! -s  "elasticsearch-1.7.2.tar.gz" ]
+then
+    curl -O https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.2.tar.gz
+fi
+
+#Download kibana
+if [ ! -s  "kibana-4.1.2-linux-x64.tar.gz" ]
+then
+    curl -O https://download.elastic.co/kibana/kibana/kibana-4.1.2-linux-x64.tar.gz
+fi
